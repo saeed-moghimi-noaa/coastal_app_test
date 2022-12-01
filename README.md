@@ -1,6 +1,6 @@
 #How to compile CoastalApp
 
-```
+```bash
 #!/bin/bash --login
 # ----------------------------------------------------------- 
 # Shell Used: BASH shell
@@ -53,5 +53,9 @@ export METIS_PATH=/scratch2/COASTAL/coastal/noscrub/shared/Takis/CoastalApp/THIR
 
 export PARMETISHOME=$METIS_PATH
 ./build.sh --component "ATMESH WW3 ADCIRC WW3DATA PAHM " --plat hera --compiler intel --clean -2  #--thirdparty=parmetis
+
+
+cd ../coastal_app_test/
+sh run_all.sh
 
 ```
