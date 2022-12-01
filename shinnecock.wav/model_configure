@@ -5,7 +5,7 @@ nhours_dfini=0
 
 #nam_atm +++++++++++++++++++++++++++
 nlunit:                  35
-deltim:                  900.0
+deltim:                  3600.0
 fhrot:                   0
 namelist:                atm_namelist
 total_member:            1
@@ -54,7 +54,7 @@ HOUTASPS:                10000
 RUN_CONTINUE:            .false.
 
 #
-dt_int:                  900
+dt_int:                  3600
 dt_num:                  0
 dt_den:                  1
 start_year:              2008

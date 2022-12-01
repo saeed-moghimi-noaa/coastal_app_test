@@ -1,6 +1,5 @@
-shinnecock.tide_spinup
-shinnecock.atm2ocn
-shinnecock.atm2wav
-shinnecock.pam2ocn
-shinnecock.atm2wav2ocn
-
+shinnecock.adc_spinup 
+shinnecock.atm2adc 
+shinnecock.atm2wav 
+shinnecock.atm2wav2adc 
+shinnecock.wav 

@@ -1,24 +1,26 @@
-#!/bin/bash
-# ----------------------------------------------------------- 
-# UNIX Shell Script File
-# Tested Operating System(s): RHEL 7
-# Tested Run Level(s): 
-# Shell Used: BASH shell
-# Original Author(s): Andre van der Westhuysen
-# File Creation Date: 05/15/2020
-# Date Last Modified:
-#
-# Version control: 1.00
-#
-# Support Team:
-#
-# Contributors: 
+#!/bin/bash --login
+
+# Contributors: Andre van der Westhuysen
 #
 # ----------------------------------------------------------- 
 # ------------- Program Description and Details ------------- 
 # ----------------------------------------------------------- 
 #
-# Script to call NEMS.x executable for forecast run
+# Job Card to set the resources required for a NSEM run
+#
+# ----------------------------------------------------------- 
+
+#SBATCH --account=coastal
+#SBATCH --job-name=sh_wav
+#SBATCH -q batch
+#SBATCH --time=02:30:00
+#SBATCH --ntasks=12
+#SBATCH --mem 3000
+#SBATCH --cpus-per-task=1            # Number of cores per MPI rank (for hyperthreading)
+#SBATCH --mail-user=saeed.moghimi@noaa.gov
+#SBATCH --mail-type=ALL
+#SBATCH --output=sh_wav.out.log
+#SBATCH --error=sh_wav.err.log
 #
 # ----------------------------------------------------------- 
 
@@ -41,5 +43,6 @@ mv nest.ww3 nest.inlet
 
 echo "Running NEMS.x..."
 #srun -v --slurmd-debug=4 --mem=3000 ./NEMS.x
-srun ${EXECnsem}/NEMS.x
+srun ${EXECnsem}/NEMS.x  &> multi.out
+
 
