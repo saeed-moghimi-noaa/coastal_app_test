@@ -1,4 +1,6 @@
-#How to compile CoastalApp
+# CoastalApp Tests (Temp repo)
+
+## How to compile CoastalApp
 
 ```bash
 #!/bin/bash --login
