@@ -1,6 +1,6 @@
 #How to compile CoastalApp
 
-```
+```bash
 #!/bin/bash --login
 # ----------------------------------------------------------- 
 # Shell Used: BASH shell
@@ -26,11 +26,13 @@ export ROOTDIR='/scratch2/COASTAL/coastal/save/Saeed.Moghimi/models/NEMS/tests/C
 
 ############
 # Check out codes
-git clone --recursive https://github.com/noaa-ocs-modeling/CoastalApp $ROOTDIR
+git clone --recurse-submodules https://github.com/noaa-ocs-modeling/CoastalApp -b develop_build $ROOTDIR
 cd $ROOTDIR
-git checkout develop_build
-git submodule sync
-git submodule update --init --recursive
+
+
+#git checkout develop_build
+#git submodule sync
+#git submodule update --init --recursive
 
 
 # DDDDDDDDownload parmatis
@@ -43,8 +45,17 @@ git submodule update --init --recursive
 
 
 ###OOOOOOOOR pass your own Parmatis
-export METIS_PATH=/scratch2/COASTAL/coastal/save/Ali.Abdolali/hpc-stack/parmetis-4.0.3
+#Ali's ParMatis using hpc-stack static library not works with ADCIRC for now
+#export METIS_PATH=/scratch2/COASTAL/coastal/save/Ali.Abdolali/hpc-stack/parmetis-4.0.3
+
+#Takis similar to SCHISM ParMatis
+export METIS_PATH=/scratch2/COASTAL/coastal/noscrub/shared/Takis/CoastalApp/THIRDPARTY_INSTALL
+
 export PARMETISHOME=$METIS_PATH
 ./build.sh --component "ATMESH WW3 ADCIRC WW3DATA PAHM " --plat hera --compiler intel --clean -2  #--thirdparty=parmetis
+
+
+cd ../coastal_app_test/
+sh run_all.sh
 
 ```
