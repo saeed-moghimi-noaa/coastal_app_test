@@ -23,9 +23,14 @@
 # ----------------------------------------------------------- 
 
 
-export WRKdir=/scratch2/COASTAL/coastal/noscrub/shared/Saeed.Moghimi/coastalapp_test/rerun-andre/tmp/work2
+export WRKdir=/scratch2/COASTAL/coastal/noscrub/shared/Saeed.Moghimi/coastalapp_test/rerun-andre/CoastalApp-WW3-tests/work
 export ROOTDIR=/scratch2/COASTAL/coastal/noscrub/shared/Saeed.Moghimi/coastalapp_test/rerun-andre/tmp/CoastalApp/
+export HSOFSDATA=/scratch2/COASTAL/coastal/noscrub/shared/Saeed.Moghimi/coastalapp_test/rerun-andre/CoastalApp-WW3-tests/hsofs-data/
 #################################
+
+#   for fl in `ls ${HSOFSDATA}`;   do 
+#      echo ${HSOFSDATA}/${fl} 
+#   done
 
 
 export EXECnsem=${ROOTDIR}/ALLBIN_INSTALL/
@@ -33,13 +38,20 @@ source ${ROOTDIR}/modulefiles/envmodules_intel.hera
 module list
 
 
-echo "=== In run_all.sh ==="
+echo "=== In run_all_hsofs.sh ==="
+
+name="hsofs"
+
 #
 while read regtest	
 do
    echo "> Running "${regtest}
    export WORKdir=${WRKdir}/${regtest}
    mkdir -p ${WORKdir}
-   cp -p ${regtest}/* ${WORKdir}/
+   cp -p ${regtest}/*     ${WORKdir}/
+     
+   if [[ "${regtest}" == *"$name"* ]]; then  
+     cp -s ${HSOFSDATA}/*   ${WORKdir}/
+   fi
    sbatch ${WORKdir}/run_case.sh
 done < regtest_list.dat

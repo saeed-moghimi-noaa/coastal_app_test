@@ -59,3 +59,13 @@ cd ../coastal_app_test/
 sh run_all.sh
 
 ```
+
+## Run HSOFS (1.8M node mesh)
+
+you need to pass a folder **hsofs-data**. Try to download the data using below script. The data contains the whole Florence, 2018 ATMesh forcing,  ww3 wave boundary and ADCIRC mesh information.
+
+```bash 
+ echo "=== download  hsofs-data.tgz ==="
+ wget https://tacc-nos-coastalapp-testsuit.s3.amazonaws.com/hsofs-data.tgz 
+ tar -zxvf hsofs-data.tgz
+```
