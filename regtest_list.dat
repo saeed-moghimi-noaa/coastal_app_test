@@ -1,5 +1,8 @@
-shinnecock.adc_spinup 
-shinnecock.atm2adc 
-shinnecock.atm2wav 
-shinnecock.atm2wav2adc 
-shinnecock.wav 
+shinnecock.adc_spinup/
+shinnecock.atm2adc/
+shinnecock.atm2wav/
+shinnecock.atm2wav2adc/
+shinnecock.pam2adc/
+shinnecock.wav/
+
+

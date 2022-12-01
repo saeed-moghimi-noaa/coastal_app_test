@@ -43,7 +43,11 @@ git submodule update --init --recursive
 
 
 ###OOOOOOOOR pass your own Parmatis
-export METIS_PATH=/scratch2/COASTAL/coastal/save/Ali.Abdolali/hpc-stack/parmetis-4.0.3
+#export METIS_PATH=/scratch2/COASTAL/coastal/save/Ali.Abdolali/hpc-stack/parmetis-4.0.3
+
+#Takis similar to SCHISM ParMatis
+export METIS_PATH=/scratch2/COASTAL/coastal/noscrub/shared/Takis/CoastalApp/THIRDPARTY_INSTALL
+
 export PARMETISHOME=$METIS_PATH
 ./build.sh --component "ATMESH WW3 ADCIRC WW3DATA PAHM " --plat hera --compiler intel --clean -2  #--thirdparty=parmetis
 
