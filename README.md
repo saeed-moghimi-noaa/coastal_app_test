@@ -64,7 +64,7 @@ sh run_all.sh
 
 ## Run HSOFS (1.8M node mesh)
 
-you need an env variable inside **run_all.sh** as  **$HSOFSDATA**. Try to download the hsofs-data use below script. The data contains the **Florence,2018** ATMesh forcing,  ww3 wave boundary and ADCIRC mesh information.
+you need an env variable inside **run_all.sh** as  **$HSOFSDATA**. Try to download the hsofs-data using below script. The data contains the **Florence,2018** ATMesh forcing, WW3 wave boundary and ADCIRC mesh information.
 
 ```bash 
  echo "=== download  hsofs-data.tgz ==="
